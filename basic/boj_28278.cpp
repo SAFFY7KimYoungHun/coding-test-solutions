@@ -1,31 +1,37 @@
 /*
-문제
-정수를 저장하는 스택을 구현한 다음, 입력으로 주어지는 명령을 처리하는 프로그램을 작성하시오.
+출처: BOJ 28278 _스택 구현 문제 (실버4)
 
-명령은 총 다섯 가지이다.
+주제:
+스택 자료구조 구현
 
-1 X: 정수 X를 스택에 넣는다. (1 ≤ X ≤ 100,000)
-2: 스택에 정수가 있다면 맨 위의 정수를 빼고 출력한다. 없다면 -1을 대신 출력한다.
-3: 스택에 들어있는 정수의 개수를 출력한다.
-4: 스택이 비어있으면 1, 아니면 0을 출력한다.
-5: 스택에 정수가 있다면 맨 위의 정수를 출력한다. 없다면 -1을 대신 출력한다.
-입력
-첫째 줄에 명령의 수 N이 주어진다. (1 ≤ N ≤ 1,000,000)
+링크:
+https://www.acmicpc.net/problem/28278
 
-둘째 줄부터 N개 줄에 명령이 하나씩 주어진다.
+풀이 아이디어:
+- C++ STL stack 사용
+- 명령어에 따라 push, pop, size, empty, top 동작 수행
+- 출력은 string에 모아 마지막에 한번에 출력
 
-출력을 요구하는 명령은 하나 이상 주어진다.
+시간/공간 복잡도:
+- 시간: O(N)
+- 공간: O(N)
 
-출력
-출력을 요구하는 명령이 주어질 때마다 명령의 결과를 한 줄에 하나씩 출력한다.
+메모(실수/개선):
+- cin/cout 속도 향상 위해 ios::sync_with_stdio(false), cin.tie(NULL) 사용 고려
+- 출력 시 endl 대신 '\n' 사용
 */
 #include <iostream>
 #include <stack>
+#include <string>
 using namespace std;
 int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
     int N;
     stack<int> S;
     cin>>N;
+
     string out;
     for(int n=0;n<N;n++){
         int inp;
